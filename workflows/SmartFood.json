@@ -1,0 +1,67 @@
+{
+  "name": "SmartFood",
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.line.me/v2/bot/message/push",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ 'Bearer ' + $env.LINE_TOKEN }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n\"to\":\"{{ $env.LINE_USER_ID }}\", \n  \"messages\": [\n    {\n      \"type\": \"text\",\n      \"text\": \"【SmartFood】系統通知：您有食材即將到期！\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        64,
+        96
+      ],
+      "id": "68432c35-5096-4c1c-91de-0b330adead54",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -128,
+        96
+      ],
+      "id": "4ac0b89c-8b56-4daa-8587-9ea6736f7f63",
+      "name": "When clicking ‘Execute workflow’"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "118478df-6540-4390-9174-1ca729c70c9f",
+  "meta": {
+    "instanceId": "de8dc0f83d6509695ac84c5e643de98b401e079e542c1c41f35306096c256e61"
+  },
+  "id": "gyaePlKP0PXxx5aK",
+  "tags": []
+}
