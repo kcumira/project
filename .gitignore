@@ -1,0 +1,23 @@
+.env
+*.env
+
+# Python
+venv/
+.venv/
+Lib/
+Scripts/
+pyvenv.cfg
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Databases / local files
+*.db
+*.sqlite3
+key.json
+
+# Frontend
+node_modules/
+dist/
